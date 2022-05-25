@@ -550,6 +550,11 @@ class Variant:
         return self._ll_variant.alleles
 
     @property
+    def inverted(self) -> bool:
+        return self._ll_variant.inverted
+
+
+    @property
     def genotypes(self) -> np.ndarray:
         """
         An array of indexes into the list ``alleles``, giving the
@@ -641,6 +646,17 @@ class Provenance(util.Dataclass):
     A JSON string giving details of the provenance (see :ref:`sec_provenance_example`
     for an example JSON string)
     """
+
+
+@metadata_module.lazy_decode
+@dataclass
+class Inversion(util.dataclass):
+    node: int
+
+@metadata_module.lazy_decode
+@dataclass
+class recombination(util.dataclass):
+    node: int
 
 
 class Tree:
