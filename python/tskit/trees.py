@@ -553,6 +553,10 @@ class Variant:
     def inverted(self) -> bool:
         return self._ll_variant.inverted
 
+    @property
+    def context(self) -> bool:
+        return self._ll_variant.context
+
 
     @property
     def genotypes(self) -> np.ndarray:
